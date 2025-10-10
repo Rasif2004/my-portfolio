@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="icon" type="img/png" href="icon_me.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        primary: {
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                        },
+                        secondary: {
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        },
+                        accent: {
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: calc(100% - 24px);
+            width: 2px;
+            background: linear-gradient(to bottom, #22d3ee, #22c55e);
+        }
+
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-gray-200 font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <img src="logo.png" alt="" height="20" width="90">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home"
+                            class="group relative px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-primary-300 transition">
+                            Home
+                            <span
+                                class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#about"
+                            class="group relative px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-secondary-300 transition">
+                            About
+                            <span
+                                class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#projects"
+                            class="group relative px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-accent-300 transition">
+                            Projects
+                            <span
+                                class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-accent-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#skills"
+                            class="group relative px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-primary-300 transition">
+                            Skills
+                            <span
+                                class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#research"
+                            class="group relative px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-secondary-300 transition">
+                            Research
+                            <span
+                                class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                        <a href="#contact"
+                            class="group relative px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-accent-300 transition">
+                            Contact
+                            <span
+                                class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-accent-400 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 rounded-md hover:text-primary-300 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-dark/95 backdrop-blur-sm border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary-300 transition">Home</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-secondary-300 transition">About</a>
+                <a href="#projects"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent-300 transition">Projects</a>
+                <a href="#skills"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary-300 transition">Skills</a>
+                <a href="#research"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-secondary-300 transition">Research</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-accent-300 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                        <span class="text-primary-300">Hello,</span>
+                        <span class="text-secondary-300">I'm</span>
+                        <span class="text-accent-300">Rasif</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-300">Computer Science Student</h2>
+                    <p class="text-lg mb-8 text-gray-400 max-w-lg">
+                        Passionate about solving complex problems through code and innovative thinking.
+                        Currently pursuing my degree with focus on Machine Learning and Deep Learning.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects"
+                            class="px-6 py-3 bg-primary-500 hover:bg-primary-400 text-dark font-medium rounded-lg transition">View
+                            Projects</a>
+                        <a href="#contact"
+                            class="px-6 py-3 border border-secondary-400 hover:bg-secondary-500/10 text-secondary-300 font-medium rounded-lg transition">Contact
+                            Me</a>
+                        <a href="https://drive.google.com/uc?export=download&id=1vpdt_lYfSO3lV0xA1BYzgXkJuBqrkHH-"
+                            class="px-6 py-3 border border-accent-400 hover:bg-accent-500/10 text-accent-300 font-medium rounded-lg transition">Download
+                            CV</a>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="flex justify-center">
+                    <div class="relative">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-400 shadow-lg shadow-primary-400/20">
+                            <!-- Gradient background -->
+                            <div class="absolute inset-0 rounded-full"
+                                style="background: radial-gradient(circle at 60% 40%, #15a1b7 20%, #facc15 60%, #22c55e 100%); z-index: 1;">
+                            </div>
+                            <!-- Profile image above gradient -->
+                            <img src="profile.png" alt="Profile"
+                                class="w-full h-full object-cover relative z-10 rounded-full">
+                        </div>
+                        <div
+                            class="absolute -bottom-5 -right-5 bg-dark p-3 rounded-full border-2 border-accent-400 shadow-lg">
+                            <i data-feather="code" class="text-accent-300 w-8 h-8"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-2 text-primary-300">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-secondary-400 to-accent-400 mx-auto mb-8"></div>
+                <div class="flex flex-row items-center justify-center mb-2">
+                    <div class="bg-accent-500/10 p-3 rounded-full mr-4">
+                        <i data-feather="user" class="text-accent-400"></i>
+                    </div>
+                    <div class="flex flex-col items-start justify-center"></div>
+                    <h3 class="text-lg font-bold text-accent-300">Sajidul Kabir Rasif</h3>
+                </div>
+            </div>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-6">
+                My educational journey and passion for computer science that drives me to explore new technologies
+                and create innovative solutions.
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto" data-aos="fade-up">
+            <div class="space-y-8">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item relative pl-8">
+                    <div
+                        class="absolute left-0 top-0 w-4 h-4 rounded-full bg-secondary-400 border-2 border-secondary-300">
+                    </div>
+                    <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-secondary-400 shadow-lg">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-secondary-300">Bachelor's in Computer Science</h3>
+                            <span class="text-sm bg-secondary-500/20 text-secondary-300 px-3 py-1 rounded-full">2024
+                                - Present</span>
+                        </div>
+                        <p class="text-gray-400 mt-2">Daffodil International University</p>
+                        <p class="mt-3 text-gray-300">
+                            Specializing in Machine Learning and Deep Learning. Currently maintaining a GPA of 3.88.
+                            Achieved a Dean's List Award.
+                            Relevant coursework: Data Structures, Algorithms, Object Oriented Programming, Database
+                            Systems, Machine Learning.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item relative pl-8">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-accent-400 border-2 border-accent-300">
+                    </div>
+                    <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-accent-400 shadow-lg">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-accent-300">Higher Secondary School</h3>
+                            <span class="text-sm bg-accent-500/20 text-accent-300 px-3 py-1 rounded-full">2021 -
+                                2023</span>
+                        </div>
+                        <p class="text-gray-400 mt-2">Uttara High School & College</p>
+                        <p class="mt-3 text-gray-300">
+                            Focused on STEM subjects with emphasis on mathematics.
+                            Participated in coding competitions and science fairs. Achived GPA 5 out of 5.00 in HSC
+                            examination.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item relative pl-8">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary-400 border-2 border-primary-300">
+                    </div>
+                    <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-primary-400 shadow-lg">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold text-primary-300">First Coding Experience</h3>
+                            <span class="text-sm bg-primary-500/20 text-primary-300 px-3 py-1 rounded-full">2019</span>
+                        </div>
+                        <p class="text-gray-400 mt-2">Self-Taught</p>
+                        <p class="mt-3 text-gray-300">
+                            Started learning programming with Python, creating simple games and applications.
+                            This sparked my passion for computer science and problem-solving through code.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 text-accent-300">My Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    A collection of my work showcasing my skills and creativity in solving real-world problems.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+                <!-- Project 1 -->
+                <div
+                    class="bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-primary-400 transition group">
+                    <div class="h-48 overflow-hidden">
+                        <div class="h-48 overflow-hidden relative">
+                            <iframe loading="lazy"
+                                style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+                                src="https://www.canva.com/design/DAGz9ZkqkGo/zArawAwmTVZNl-hA_y4nXA/view?embed">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i data-feather="folder" class="text-primary-400 mr-2"></i>
+                            <h3 class="text-xl font-bold text-primary-300">Machine Learning Model</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Developed a predictive model using TensorFlow that recoginizes handwritten digit with 95%
+                            accuracy.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">Python</span>
+                            <span
+                                class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">TensorFlow</span>
+                            <span
+                                class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">OpenCV-Python</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Rasif2004/Hand-Written-Digit-Recognition" target="_blank"
+                                class="text-gray-400 hover:text-primary-300 transition">
+                                <i data-feather="github"></i>
+                            </a>
+                            <!-- <a href="#" class="text-gray-400 hover:text-secondary-300 transition">
+                                <i data-feather="external-link"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <!-- <div
+                    class="bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-secondary-400 transition group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/102" alt="Project 2"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i data-feather="folder" class="text-secondary-400 mr-2"></i>
+                            <h3 class="text-xl font-bold text-secondary-300">E-commerce Website</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Full-stack e-commerce platform with React frontend, Node.js backend, and MongoDB database.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">React</span>
+                            <span
+                                class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">Node.js</span>
+                            <span class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-primary-300 transition">
+                                <i data-feather="github"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-secondary-300 transition">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Project 3 -->
+                <!-- <div
+                    class="bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-accent-400 transition group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/103" alt="Project 3"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i data-feather="folder" class="text-accent-400 mr-2"></i>
+                            <h3 class="text-xl font-bold text-accent-300">Mobile App Development</h3>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Cross-platform mobile application for [specific purpose] built with Flutter and Firebase.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">Flutter</span>
+                            <span class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">Dart</span>
+                            <span class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">Firebase</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-primary-300 transition">
+                                <i data-feather="github"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-secondary-300 transition">
+                                <i data-feather="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="https://github.com/Rasif2004" target="_blank"
+                        class="inline-flex items-center px-6 py-3 border border-primary-400 text-primary-300 rounded-lg hover:bg-primary-500/10 transition">
+                        View All Projects
+                        <i data-feather="arrow-right" class="ml-2"></i>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 text-secondary-300">Technical Skills</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-accent-400 to-primary-400 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    The tools and technologies I've mastered to bring ideas to life.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto" data-aos="fade-up">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-primary-300 flex items-center">
+                        <i data-feather="code" class="mr-2"></i> Programming
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">Python</span>
+                                <span class="text-primary-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-primary-400 to-primary-300"
+                                    style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">C</span>
+                                <span class="text-primary-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-primary-400 to-primary-300"
+                                    style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">C++</span>
+                                <span class="text-primary-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-primary-400 to-primary-300"
+                                    style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">Java</span>
+                                <span class="text-primary-300">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-primary-400 to-primary-300"
+                                    style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-secondary-300 flex items-center">
+                        <i data-feather="tool" class="mr-2"></i> Frameworks & Tools
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">Docker</span>
+                                <span class="text-secondary-300">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-secondary-400 to-secondary-300"
+                                    style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">Pytorch</span>
+                                <span class="text-secondary-300">65%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-secondary-400 to-secondary-300"
+                                    style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">TensorFlow</span>
+                                <span class="text-secondary-300">62%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-secondary-400 to-secondary-300"
+                                    style="width: 62%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-300">AWS</span>
+                                <span class="text-secondary-300">58%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="skill-bar h-2 rounded-full bg-gradient-to-r from-secondary-400 to-secondary-300"
+                                    style="width: 58%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Skills -->
+            <div class="max-w-4xl mx-auto mt-12" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-6 text-accent-300 flex items-center">
+                    <i data-feather="award" class="mr-2"></i> Other Skills
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full">Problem Solving</span>
+                    <span class="px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full">Data Structures</span>
+                    <span class="px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full">Algorithms</span>
+                    <span class="px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full">Git</span>
+                    <span class="px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full">Agile Methodologies</span>
+                    <span class="px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full">UI/UX Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 text-primary-300">Research Work</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-secondary-400 to-accent-400 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Academic research and publications in the field of computer science.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" data-aos="fade-up">
+                <!-- Research 1 -->
+                <!-- <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-primary-400 shadow-lg">
+                    <div class="flex items-start mb-4">
+                        <i data-feather="file-text" class="text-primary-400 mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-300">AI in Healthcare</h3>
+                            <p class="text-sm text-gray-400">Published in Journal of CS Research, 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Investigated the application of machine learning algorithms in early disease detection,
+                        achieving 92% accuracy in our tests.
+                    </p>
+                    <a href="#" class="text-primary-300 hover:text-primary-400 flex items-center text-sm">
+                        Read Paper <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div> -->
+
+                <!-- Research 2 -->
+                <!-- <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-secondary-400 shadow-lg">
+                    <div class="flex items-start mb-4">
+                        <i data-feather="file-text" class="text-secondary-400 mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary-300">Blockchain Security</h3>
+                            <p class="text-sm text-gray-400">Presented at CS Conference, 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Developed a novel approach to enhance blockchain security protocols, reducing vulnerability by
+                        40% in simulated attacks.
+                    </p>
+                    <a href="#" class="text-secondary-300 hover:text-secondary-400 flex items-center text-sm">
+                        View Presentation <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div> -->
+
+                <!-- Research 3 -->
+                <!-- <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-accent-400 shadow-lg">
+                    <div class="flex items-start mb-4">
+                        <i data-feather="file-text" class="text-accent-400 mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-accent-300">Quantum Computing</h3>
+                            <p class="text-sm text-gray-400">Ongoing Research</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Exploring quantum algorithms for optimization problems, with preliminary results showing 3x
+                        speedup over classical methods.
+                    </p>
+                    <a href="#" class="text-accent-300 hover:text-accent-400 flex items-center text-sm">
+                        Learn More <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div> -->
+
+                <!-- Research 4 -->
+                <!-- <div class="bg-gray-800/70 p-6 rounded-lg border-l-4 border-primary-400 shadow-lg">
+                    <div class="flex items-start mb-4">
+                        <i data-feather="file-text" class="text-primary-400 mr-3 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-300">NLP Techniques</h3>
+                            <p class="text-sm text-gray-400">University Research Project, 2021</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Implemented advanced natural language processing techniques for sentiment analysis with 87%
+                        precision across multiple languages.
+                    </p>
+                    <a href="#" class="text-primary-300 hover:text-primary-400 flex items-center text-sm">
+                        View Details <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 text-secondary-300">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-400 to-accent-400 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                    Have a question or want to work together? Feel free to reach out!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto" data-aos="fade-up">
+                <!-- Contact Form -->
+                <div class="bg-gray-800/70 p-8 rounded-lg shadow-lg">
+                    <form action="mailto:rasif782004@gmail.com" method="post" enctype="text/plain">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-400 text-gray-200"
+                                placeholder="John Doe">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-400 text-gray-200"
+                                placeholder="john@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-400 text-gray-200"
+                                placeholder="Hello, I would like to..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-6 py-3 bg-gradient-to-r from-secondary-400 to-accent-400 text-dark font-medium rounded-lg hover:opacity-90 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-primary-500/10 p-3 rounded-full mr-4">
+                            <i data-feather="mail" class="text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary-300 mb-1">Email</h3>
+                            <a href="mailto:your.email@example.com"
+                                class="text-gray-400 hover:text-primary-300 transition">rasif782004@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-secondary-500/10 p-3 rounded-full mr-4">
+                            <i data-feather="phone" class="text-secondary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-secondary-300 mb-1">Phone</h3>
+                            <a href="tel:+1234567890" class="text-gray-400 hover:text-secondary-300 transition">+880
+                                1634-431744</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-accent-500/10 p-3 rounded-full mr-4">
+                            <i data-feather="map-pin" class="text-accent-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-accent-300 mb-1">Location</h3>
+                            <p class="text-gray-400">Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <h3 class="text-lg font-bold text-gray-300 mb-4">Connect with me</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Rasif2004" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary-500/20 hover:text-primary-300 transition">
+                                <i data-feather="github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sajidul-kabir-rasif" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-secondary-500/20 hover:text-secondary-300 transition">
+                                <i data-feather="linkedin"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@CodeinMotion004" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-red-500/20 hover:text-red-300 transition">
+                                <i data-feather="youtube"></i>
+                            </a>
+                            <a href="https://www.facebook.com/sajidul.kabir.rasif" target="_blank"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-blue-500/20 hover:text-blue-300 transition">
+                                <i data-feather="facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <!-- <span class="text-primary-400 font-bold text-lg">CS Portfolio</span> -->
+                    <img src="icon_me.png" width="40" alt="">
+                    <p class="text-gray-500 text-sm mt-1">© 2023 All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6 mr-12">
+                    <a href="#home" class="group relative text-gray-500 hover:text-primary-300 transition">
+                        Home
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="group relative text-gray-500 hover:text-secondary-300 transition">
+                        About
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-secondary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects" class="group relative text-gray-500 hover:text-accent-300 transition">
+                        Projects
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-accent-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#skills" class="group relative text-gray-500 hover:text-primary-300 transition">
+                        Skills
+                        <span
+                            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-700 shadow-lg hover:bg-primary-500/20 hover:text-primary-300 transition hidden">
+        <i data-feather="arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', function () {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate skill bars when they come into view
+        const skillBars = document.querySelectorAll('.skill-bar');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 100);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+
+        // Refresh AOS when scrolling to ensure animations trigger
+        document.addEventListener('scroll', AOS.refresh);
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+
+</html>
