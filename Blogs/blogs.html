@@ -1,1 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Portfolio</title>
+    <link rel="icon" type="img/png" href="icon_me.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        primary: {
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                        },
+                        secondary: {
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        },
+                        accent: {
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-tag {
+            transition: all 0.3s ease;
+        }
+
+        .category-tag:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-gray-200 font-sans">
+    <!-- Return to Portfolio Button (Top) -->
+    <div class="fixed top-6 left-6 z-50">
+        <a href="../index.html"
+            class="inline-flex items-center px-4 py-2 bg-gray-800/80 backdrop-blur-sm border border-primary-400 text-primary-300 rounded-lg hover:bg-primary-500/20 transition shadow-lg">
+            <i data-feather="arrow-left" class="mr-2 w-5 h-5"></i>
+            Back to Portfolio
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-[40vh] flex items-center pt-16 bg-gradient-to-b from-gray-900/50 to-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="text-primary-300">My</span>
+                    <span class="text-secondary-300">Blog</span>
+                </h1>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 mx-auto mb-6"></div>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                    Thoughts, tutorials, and insights on programming, machine learning, and technology
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="py-8 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up">
+                <button
+                    class="category-tag px-4 py-2 bg-primary-500/20 text-primary-300 rounded-full border border-primary-400 hover:bg-primary-500/30">
+                    All Posts
+                </button>
+                <button
+                    class="category-tag px-4 py-2 bg-secondary-500/10 text-secondary-300 rounded-full border border-secondary-400/50 hover:bg-secondary-500/20">
+                    Machine Learning
+                </button>
+                <button
+                    class="category-tag px-4 py-2 bg-accent-500/10 text-accent-300 rounded-full border border-accent-400/50 hover:bg-accent-500/20">
+                    Programming
+                </button>
+                <button
+                    class="category-tag px-4 py-2 bg-primary-500/10 text-primary-300 rounded-full border border-primary-400/50 hover:bg-primary-500/20">
+                    Tutorials
+                </button>
+                <button
+                    class="category-tag px-4 py-2 bg-secondary-500/10 text-secondary-300 rounded-full border border-secondary-400/50 hover:bg-secondary-500/20">
+                    Tech Insights
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-card bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-primary-400 transition shadow-lg"
+                    data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-primary-400/20 to-secondary-400/20 flex items-center justify-center">
+                        <div class="flex items-center space-x-4">
+                            <i data-feather="video" class="w-20 h-20 text-secondary-300"></i>
+                            <i data-feather="alert-triangle" class="w-10 h-10 text-accent-300"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3 text-sm text-gray-400">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <span>October 15, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary-300 mb-3 hover:text-primary-400 transition cursor-pointer">
+                            Smarter eyes on fire: deep learning for faster, reliable detection
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Video-based fire and smoke detection leverages deep learning and smart cameras to enable faster, more reliable, and scalable fire safety solutions, while facing challenges of data scarcity, variability, and real-time edge deployment.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">Deep Learning</span>
+                            <span class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">Computer Vision</span>
+                        </div>
+                        <a href="fireandsmoke.html" class="inline-flex items-center text-primary-300 hover:text-primary-400 transition">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <!-- <article class="blog-card bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-secondary-400 transition shadow-lg"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-secondary-400/20 to-accent-400/20 flex items-center justify-center">
+                        <i data-feather="code" class="w-20 h-20 text-secondary-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3 text-sm text-gray-400">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <span>October 10, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-300 mb-3 hover:text-secondary-400 transition cursor-pointer">
+                            Building RESTful APIs with Python
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Learn how to create robust and scalable RESTful APIs using Flask and FastAPI frameworks with practical examples.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">Programming</span>
+                            <span class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">API</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-secondary-300 hover:text-secondary-400 transition">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article> -->
+
+                <!-- Blog Post 3 -->
+                <!-- <article class="blog-card bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-accent-400 transition shadow-lg"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-accent-400/20 to-primary-400/20 flex items-center justify-center">
+                        <i data-feather="database" class="w-20 h-20 text-accent-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3 text-sm text-gray-400">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <span>October 5, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>6 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-300 mb-3 hover:text-accent-400 transition cursor-pointer">
+                            Understanding Data Structures
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Deep dive into fundamental data structures like arrays, linked lists, trees, and graphs with implementation examples.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">Programming</span>
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">Algorithms</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-accent-300 hover:text-accent-400 transition">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article> -->
+
+                <!-- Blog Post 4 -->
+                <!-- <article class="blog-card bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-primary-400 transition shadow-lg"
+                    data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-primary-400/20 to-accent-400/20 flex items-center justify-center">
+                        <i data-feather="layers" class="w-20 h-20 text-primary-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3 text-sm text-gray-400">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <span>September 28, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary-300 mb-3 hover:text-primary-400 transition cursor-pointer">
+                            Neural Networks Explained
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            A beginner-friendly explanation of how neural networks work, from basic perceptrons to deep learning architectures.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">Machine Learning</span>
+                            <span class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">AI</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary-300 hover:text-primary-400 transition">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article> -->
+
+                <!-- Blog Post 5 -->
+                <!-- <article class="blog-card bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-secondary-400 transition shadow-lg"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-secondary-400/20 to-primary-400/20 flex items-center justify-center">
+                        <i data-feather="terminal" class="w-20 h-20 text-secondary-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3 text-sm text-gray-400">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <span>September 20, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>7 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-300 mb-3 hover:text-secondary-400 transition cursor-pointer">
+                            Mastering Git and GitHub
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Essential Git commands and workflows every developer should know for effective version control and collaboration.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-secondary-500/20 text-secondary-300 px-2 py-1 rounded">Tools</span>
+                            <span class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">Tutorial</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-secondary-300 hover:text-secondary-400 transition">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article> -->
+
+                <!-- Blog Post 6 -->
+                <!-- <article class="blog-card bg-gray-800/70 rounded-lg overflow-hidden border border-gray-700 hover:border-accent-400 transition shadow-lg"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-accent-400/20 to-secondary-400/20 flex items-center justify-center">
+                        <i data-feather="cloud" class="w-20 h-20 text-accent-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3 text-sm text-gray-400">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <span>September 15, 2025</span>
+                            <span class="mx-2">•</span>
+                            <span>9 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent-300 mb-3 hover:text-accent-400 transition cursor-pointer">
+                            Introduction to Cloud Computing
+                        </h3>
+                        <p class="text-gray-400 mb-4">
+                            Explore the fundamentals of cloud computing, AWS services, and how to deploy your first application to the cloud.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-accent-500/20 text-accent-300 px-2 py-1 rounded">Cloud</span>
+                            <span class="text-xs bg-primary-500/20 text-primary-300 px-2 py-1 rounded">AWS</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-accent-300 hover:text-accent-400 transition">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </article> -->
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12 space-x-2" data-aos="fade-up">
+                <button class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg hover:border-primary-400 text-gray-400 hover:text-primary-300 transition">
+                    <i data-feather="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button class="px-4 py-2 bg-primary-500/20 border border-primary-400 rounded-lg text-primary-300">
+                    1
+                </button>
+                <button class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg hover:border-primary-400 text-gray-400 hover:text-primary-300 transition">
+                    2
+                </button>
+                <button class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg hover:border-primary-400 text-gray-400 hover:text-primary-300 transition">
+                    3
+                </button>
+                <button class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg hover:border-primary-400 text-gray-400 hover:text-primary-300 transition">
+                    <i data-feather="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <!-- <section class="py-20 bg-gray-900/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <div class="bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-accent-500/10 p-12 rounded-lg border border-gray-700">
+                <i data-feather="mail" class="w-12 h-12 text-primary-300 mx-auto mb-4"></i>
+                <h2 class="text-3xl font-bold mb-4 text-primary-300">Subscribe to My Newsletter</h2>
+                <p class="text-gray-400 mb-6">
+                    Get the latest posts and updates delivered directly to your inbox
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Your email address"
+                        class="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-400 text-gray-200">
+                    <button
+                        class="px-6 py-3 bg-gradient-to-r from-secondary-400 to-accent-400 text-dark font-medium rounded-lg hover:opacity-90 transition">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center">
+                <img src="../icon_me.png" width="40" alt="" class="mb-2">
+                <p class="text-gray-500 text-sm">© 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-700 shadow-lg hover:bg-primary-500/20 hover:text-primary-300 transition hidden">
+        <i data-feather="arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button
+        window.addEventListener('scroll', function () {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+
+</html>
