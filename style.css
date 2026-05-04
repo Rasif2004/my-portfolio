@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@font-face {
+    font-family: 'Ethnocentric';
+    src: url('fonts/ethnocentric/Ethnocentric-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Hide standard scrollbar */
 html {
@@ -968,6 +975,7 @@ main {
 }
 
 .hero-title {
+    font-family: ethnocentric;
     font-size: 2.25rem;
     font-weight: 900;
     letter-spacing: -0.05em;
